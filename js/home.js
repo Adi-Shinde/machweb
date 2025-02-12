@@ -281,24 +281,20 @@ document.addEventListener("DOMContentLoaded", () => {
      Section 5: Responsive Navbar Toggle
   =============================== */
   const navToggle = document.querySelector(".nav-toggle");
-  const headerNav = document.querySelector(".header-nav");
+  // Use .nav-list instead of .header-nav
+  const mobileNav = document.querySelector(".nav-list");
 
-  // Only add the navToggle if it exists in the DOM
-  if (navToggle && headerNav) {
+  if (navToggle && mobileNav) {
     navToggle.addEventListener("click", () => {
-      headerNav.classList.toggle("visible");
+      mobileNav.classList.toggle("visible");
     });
 
-    // Close Navbar when clicking outside of it
+    // Close mobile menu when clicking outside
     document.addEventListener("click", (event) => {
-      const isClickInsideNav = headerNav.contains(event.target);
-      const isClickOnToggle = navToggle.contains(event.target);
-      if (
-        !isClickInsideNav &&
-        !isClickOnToggle &&
-        headerNav.classList.contains("visible")
-      ) {
-        headerNav.classList.remove("visible");
+      const isClickInside =
+        mobileNav.contains(event.target) || navToggle.contains(event.target);
+      if (!isClickInside && mobileNav.classList.contains("visible")) {
+        mobileNav.classList.remove("visible");
       }
     });
   }
@@ -317,7 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Redirect "Check Out Our Gallery" button to the Gallery page.
   const galleryBtn = document.querySelector(".btn-secondary");
   if (galleryBtn) {
-    galleryBtn.addEventListener("click", () => {  
+    galleryBtn.addEventListener("click", () => {
       window.location.href = "/html/Gallery.html";
     });
   }

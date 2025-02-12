@@ -1,0 +1,133 @@
+/* homeothermedia.css */
+/* Mobile / Tablet Responsive Overrides */
+@media (max-width: 768px) {
+
+  /* -------------------------------
+     Section 1: Header & Navbar
+  ------------------------------- */
+  .mach {
+    font-size: 4rem; /* Reduce size slightly for mobile */
+    font-weight: bold;
+    /* Use the same gradient background image as in home.css (adjust path if needed) */
+    background-image: url("../resources/GeneralWebsite/bgcolor.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .header-tagline {
+    font-size: 1.2rem;
+    font-weight: 300;
+    padding-top: 120px;
+    margin-bottom: 10px;
+  }
+
+  .header-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 10px;
+    line-height: 1;
+  }
+
+  /* 
+    Hide the navigation list by default and show a mobile menu that slides in.
+    We are now using the existing .nav-list element instead of a non‐existing .header-nav.
+  */
+  .nav-list {
+    display: none; /* Hide by default on mobile */
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 80%;
+    z-index: 20;
+    padding: 60px 20px;
+    gap: 10px;
+  }
+
+  /* When toggled, add the class "visible" to show the mobile menu */
+  .nav-list.visible {
+    display: flex;
+  }
+
+  /* Show the hamburger button on mobile */
+  .nav-toggle {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 30;
+  }
+
+  /* Ensure dropdowns in mobile do not get in the way */
+  .dropdown-menu {
+    position: static;
+    background: none;
+  }
+
+  .dropdown-menu li {
+    padding: 5px 0;
+  }
+
+  /* -------------------------------
+     Section 2: About Section
+  ------------------------------- */
+  .about-section {
+    padding-right: 20px;
+    padding-bottom: 60px;
+    text-align: center;
+    background: #fff;
+    color: #333;
+  }
+
+  .about-description {
+    font-weight: lighter;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+    line-height: 1.6;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .btn-primary {
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background: #8c01e3;
+    border: 2px solid #8c01e3;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-primary:hover {
+    background: #fbfbfb;
+    color: #8c01e3;
+    border: 2px solid #8c01e3;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+
+  /* -------------------------------
+     Section 4: Competition Info
+  ------------------------------- */
+  .competition-section {
+    flex-direction: column;  /* Stack elements vertically */
+    text-align: center;
+  }
+
+  .competition-image {
+    width: 80%; /* Scale image width on mobile */
+    margin: 0 auto 20px;
+  }
+
+  .competition-content {
+    max-width: 100%;
+  }
+}
