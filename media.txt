@@ -1,0 +1,133 @@
+line 147
+section1
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .mach {
+    font-size: 4rem; /* Larger size for the MACH letters */
+    font-weight: bold; /* Bold for emphasis */
+    background-image: url("bgcolor.png"); /* Replace with the path to your gradient image */
+    background-size: cover; /* Ensures the image covers the text area */
+    background-repeat: no-repeat; /* No repeating the image */
+    -webkit-background-clip: text; /* Clips the image to the text */
+    -webkit-text-fill-color: transparent; /* Makes the text transparent so the image shows */
+  }
+
+  .header-tagline {
+    font-size: 1.2rem;
+    font-weight: 300;
+    padding-top: 120px  ;
+    margin-bottom: 10px;
+  }
+
+  .header-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 10px;
+    
+    line-height: 1;
+  }
+
+  .header-nav {
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 80%;
+    z-index: 20;
+    padding: 60px 20px;
+  }
+
+  .header-nav.visible {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .dropdown-menu {
+    position: static;
+    background: none;
+  }
+
+  .dropdown-menu li {
+    padding: 5px 0;
+  }
+}
+
+--------------------------------------------------------------------------
+line 186 
+ section2
+@media (max-width: 768px) {
+  .about-section {
+    padding-right: 20px;
+    padding-bottom: 60px;
+    text-align: center;
+    background: #fff;
+    color: #333;
+  }
+
+  .about-description {
+    font-weight: lighter;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+    line-height: 1.6;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .btn-primary {
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    font-weight: bold; /* Bold text for emphasis */
+    color: #fff;
+    background: #8c01e3;
+    border: 2px solid #8c01e3; /* Adds a border matching the background */
+    border-radius: 8px; /* Smooth rounded corners */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+
+  .btn-primary:hover {
+    background: #fbfbfb; /* Light background on hover */
+    color: #8c01e3; /* Change text color to the original button color */
+    border: 2px solid #8c01e3; /* Ensure border color matches the hover text color */     
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Slightly larger shadow on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
+  }
+}
+------------------------------------------------------------------
+line 293 section4
+
+
+@media (max-width: 768px) {
+  .competition-section {
+    flex-direction: column; /* Stack content vertically */
+    text-align: center; /* Center-align for smaller screens */
+  }
+
+  .competition-image {
+    width: 80%; /* Reduce image width on small screens */
+    margin-right: 0; /* Remove right margin */
+    margin-bottom: 20px; /* Add spacing below the image */
+  }
+
+  .competition-content {
+    max-width: 100%; /* Allow full width on small screens */
+  }
+}
+
+
