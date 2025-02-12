@@ -1,162 +1,77 @@
-// Wait for the DOM to load before executing scripts
+// aboutMACH.js
 document.addEventListener("DOMContentLoaded", () => {
   /* ===============================
-     Section 1: Fade-In Animation
+     Section: Responsive Navbar Toggle
   =============================== */
-  const sections = document.querySelectorAll(".fade-in");
+  const navToggle = document.querySelector(".nav-toggle");
+  // Use the .nav-list element for the mobile menu
+  const mobileNav = document.querySelector(".nav-list");
 
-  const observerOptions = {
-    threshold: 0.3, // Trigger when 30% of the section is visible
-  };
+  if (navToggle && mobileNav) {
+    navToggle.addEventListener("click", (e) => {
+      // Prevent the event from bubbling up so it doesn't immediately close the menu
+      e.stopPropagation();
+      mobileNav.classList.toggle("visible");
+    });
 
-  const sectionObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("fade-in-visible");
-        observer.unobserve(entry.target); // Stop observing once animation triggers
+    // Close the mobile menu when clicking outside of it
+    document.addEventListener("click", (event) => {
+      const isClickInside =
+        mobileNav.contains(event.target) || navToggle.contains(event.target);
+      if (!isClickInside && mobileNav.classList.contains("visible")) {
+        mobileNav.classList.remove("visible");
       }
     });
-  }, observerOptions);
-
-  sections.forEach((section) => {
-    sectionObserver.observe(section);
-  });
+  }
 
   /* ===============================
-     Section 3: Responsive Dropdown Menu
+     Section: Responsive Dropdown Menu
   =============================== */
   const dropdowns = document.querySelectorAll(".dropdown");
-
   dropdowns.forEach((dropdown) => {
     const menu = dropdown.querySelector(".dropdown-menu");
 
+    // For desktop: show/hide on hover
     dropdown.addEventListener("mouseenter", () => {
       menu.style.display = "block";
     });
-
     dropdown.addEventListener("mouseleave", () => {
       menu.style.display = "none";
     });
-  });
 
-  /* ===============================
-     Section 4: Smooth Scroll for Navigation Links
-  =============================== */
-  // const navLinks = document.querySelectorAll(".nav-list a");
-
-  // navLinks.forEach((link) => {
-  //   link.addEventListener("click", (event) => {
-  //     event.preventDefault();
-  //     const targetId = link.getAttribute("href").slice(1);
-  //     const targetSection = document.getElementById(targetId);
-
-  //     if (targetSection) {
-  //       window.scrollTo({
-  //         top: targetSection.offsetTop,
-  //         behavior: "smooth",
-  //       });
-  //     }
-
-  //     // Close the navigation menu after clicking a link
-  //     const headerNav = document.querySelector(".header-nav");
-  //     if (headerNav.classList.contains("visible")) {
-  //       headerNav.classList.remove("visible");
-  //     }
-  //   });
-  // });
-
-  /* ===============================
-     Section 5: Responsive Navbar Toggle
-  =============================== */
-  const navToggle = document.createElement("button");
-  navToggle.classList.add("nav-toggle");
-  navToggle.textContent = "☰";
-
-  const headerNav = document.querySelector(".header-nav");
-  headerNav.parentElement.insertBefore(navToggle, headerNav);
-
-  navToggle.addEventListener("click", () => {
-    headerNav.classList.toggle("visible");
-  });
-
-  // Close Navbar when clicking outside of it
-  document.addEventListener("click", (event) => {
-    const isClickInsideNav = headerNav.contains(event.target);
-    const isClickNavToggle = navToggle.contains(event.target);
-
-    if (
-      !isClickInsideNav &&
-      !isClickNavToggle &&
-      headerNav.classList.contains("visible")
-    ) {
-      headerNav.classList.remove("visible");
-    }
-  });
-
-  /* ===============================
-     Section 6: Additional Responsive Navbar Toggle
-  =============================== */
-  const navToggleButton = document.querySelector(".nav-toggle");
-
-  navToggleButton.addEventListener("click", () => {
-    headerNav.classList.toggle("visible");
-  });
-
-  document.addEventListener("click", (event) => {
-    const isClickInsideNav = headerNav.contains(event.target);
-    const isClickNavToggle = navToggleButton.contains(event.target);
-
-    if (
-      !isClickInsideNav &&
-      !isClickNavToggle &&
-      headerNav.classList.contains("visible")
-    ) {
-      headerNav.classList.remove("visible");
-    }
-  });
-
-  /* ===============================
-     Section 7: Hyperlinks with Redirection
-  =============================== */
-
-  // Redirect 'Home' to ./index.html
-  // redirectTo(".nav-list li:nth-child(1)", "./index.html");
-
-  // Redirect 'About' submenu items to ./html/aboutMACH.html
-  // redirectTo(".dropdown-menu li a[href='#aboutMACH']", "./html/aboutMACH.html");
-  // redirectTo(".dropdown-menu li a[href='#aboutMACH']", "./html/aboutMACH.html");
-  // redirectTo(".dropdown-menu li a[href='#ourTeam']", "./html/aboutMACH.html");
-  // redirectTo(".dropdown-menu li a[href='#becomemember']","./html/aboutMACH.html");
-
-  // Redirect 'Projects' submenu items to ./html/aboutMACH.html
-  // redirectTo(".dropdown-menu li a[href='#gare']", "./html/aboutMACH.html");
-  // redirectTo(".dropdown-menu li a[href='#chimera']", "./html/chimera.html");
-
-  // Redirect 'Sponsorship', 'Gallery', and 'Contact' to ./html/aboutMACH.html
-  // redirectTo(".nav-list li a[href='#sponsorship']", "./html/aboutMACH.html");
-  // redirectTo(".nav-list li a[href='#gallery']", "./html/aboutMACH.html");
-  //  redirectTo(".nav-list li a[href='#cntact']", "./html/aboutMACH.html");
-
-  // Redirect 'About the Team' to ./html/aboutMACH.html
-  const galleryBtn = document.querySelector(".btn-secondary");
-  if (galleryBtn) {
-    galleryBtn.addEventListener("click", () => {
-      window.location.href = "./html/aboutMACH.html";
+    // For touch devices: toggle on click
+    dropdown.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (menu.style.display === "block") {
+        menu.style.display = "none";
+      } else {
+        menu.style.display = "block";
+      }
     });
-  }
-  // Redirect 'Check Out Our Gallery' to ./html/gallery.html
+  });
+
+  /* ===============================
+     Section: (Optional) Other Redirections
+  =============================== */
+  // Example: Redirect buttons if needed.
   const aboutTeamBtn = document.getElementById("aboutTeamBtn");
   if (aboutTeamBtn) {
     aboutTeamBtn.addEventListener("click", () => {
-      window.location.href = "./html/aboutMACH.html";
+      window.location.href = "/html/MeetOurTeam.html";
     });
   }
 
-  // Redirect 'Contact Us' to ./html/contact.html
+  const galleryBtn = document.querySelector(".btn-secondary");
+  if (galleryBtn) {
+    galleryBtn.addEventListener("click", () => {
+      window.location.href = "/html/Gallery.html";
+    });
+  }
+
   const contactBtn = document.querySelector(".contactbttn");
   if (contactBtn) {
     contactBtn.addEventListener("click", () => {
-      window.location.href = "./html/contact.html";
+      window.location.href = "/html/Contact.html";
     });
   }
 });

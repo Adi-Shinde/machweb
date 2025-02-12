@@ -9,7 +9,7 @@
     font-size: 4rem; /* Reduce size slightly for mobile */
     font-weight: bold;
     /* Use the same gradient background image as in home.css (adjust path if needed) */
-    background-image: url("../resources/GeneralWebsite/bgcolor.webp");
+    background-image: url("../../resources/GeneralWebsite/bgcolor.webp");
     background-size: cover;
     background-repeat: no-repeat;
     -webkit-background-clip: text;

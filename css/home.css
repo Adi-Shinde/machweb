@@ -113,7 +113,7 @@ body {
   display: none;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.9);
-  top: 105%;
+  top: 120%;
   left: 0;
   list-style: none;
   padding: 10px 0;
@@ -432,7 +432,7 @@ body {
 /*----------------------------------------------Contact Section----------------------------------------------*/
 .contact-section {
   padding-top: 20px;
-  padding-bottom: 60px;
+  padding-bottom: 20px;
   padding-right: 20px;
   padding-left: 20px;
 
