@@ -177,8 +177,8 @@ body {
 
 /*----------------------------------------------
     Header (Background Image, Title, etc.)
-----------------------------------------------*/
-.header {
+    
+    .header {
   position: relative;
   height: 100vh;
   background: linear-gradient(
@@ -188,9 +188,42 @@ body {
     url("../resources/HomePage/TitleBG.webp") no-repeat center center/cover;
   color: white;
   text-align: center;
-  /* Note: The nav bar is no longer part of the header */
+
+
+----------------------------------------------*/
+/* Video as background, filling header */
+.header {
+  position: relative; /* ensure video can be absolutely positioned */
+  overflow: hidden;
+  height: 100vh;
 }
 
+.header-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: 120%;            /* a bit overfill to cover edges on resize */
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -1;             /* sit behind all header content */
+  background-color: #000000;  /* fallback */
+}
+/*remove headervideo and header and add header from comments to keep image*/
+.header {
+  /*position: relative;
+  height: 100vh;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url("../resources/HomePage/TitleBG.webp") no-repeat center center/cover;*/
+  color: white;
+  text-align: center;
+  /* Note: The nav bar is no longer part of the header */
+}
 .header-container {
   /* This container now only wraps the header content */
   position: relative;
