@@ -210,6 +210,7 @@ body {
   object-fit: cover;
   z-index: -1;             /* sit behind all header content */
   background-color: #000000;  /* fallback */
+  filter: brightness(60%);
 }
 /*remove headervideo and header and add header from comments to keep image*/
 .header {
